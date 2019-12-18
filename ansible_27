@@ -1,0 +1,17 @@
+#!/bin/sh
+
+rep=$(curl -s --unix-socket /var/run/docker.sock http://ping > /dev/null)
+status=$?
+
+if [ "$status" == "7" ]; then
+    exit 1
+else
+    docker run --rm -it \
+        -v ~/.ssh/id_rsa:/root/.ssh/id_rsa \
+        -v ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub \
+        -v /mnt/build:/mnt/build \
+        -v $(pwd):/ansible/playbooks \
+        -v /var/log/ansible/ansible.log \
+        ansible:2.5.0 "$@i"
+fi
+exit 0
