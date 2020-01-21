@@ -12,6 +12,6 @@ else
         -v /mnt/build:/mnt/build \
         -v $(pwd):/ansible/playbooks \
         -v /var/log/ansible/ansible.log \
-        ansible:2.5.0 "$@i"
+        ansible:2.7.1 "$@i"
 fi
 exit 0
