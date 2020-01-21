@@ -23,7 +23,7 @@ ansible-playbook 2.7.1
 ## Running Ansible Playbook
 
 ```
-$ docker run --rm -it -v PATH_TO_LOCAL_PLAYBOOKS_DIR:/ansible/playbooks ansible:2.7.1 PLAYBOOK_FILE
+$ docker run --rm -it -v <PATH_TO_LOCAL_PLAYBOOKS_DIR>:/ansible/playbooks ansible:2.7.1 <PLAYBOOK_FILE>
 ```
 
 For example, assuming your project's structure follows [best practices](http://docs.ansible.com/ansible/playbooks_best_practices.html#directory-layout), the command to run ansible-playbook from the top-level directory would look like:
@@ -81,7 +81,7 @@ Note: the Ansible Vault executable is embedded in this image. To use it, specify
 
 ```
 docker run --rm -it -v $(pwd):/ansible/playbooks --entrypoint ansible-vault \
-  ansible:2.7.1 encrypt FILENAME
+  ansible:2.7.1 encrypt <FILENAME>
 ```
 
 
